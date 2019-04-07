@@ -73,6 +73,7 @@ DOMAINS = [
     "github.com",
     "examplessss.ooooorgg",
     "twitter.com",
+    "forest-jump",
 ]
 
 
