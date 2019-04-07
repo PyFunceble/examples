@@ -64,7 +64,7 @@ from PyFunceble import load_config
 from PyFunceble import url_test as PyFunceble
 from PyFunceble.cli_core import CLICore
 
-from helpers import print_result
+from helpers import print_test_result
 
 # We initiate the list of URLs we are going to test.
 URLS = [
@@ -89,4 +89,4 @@ for urls in URLS:
     # We loop through the list of URLs.
 
     # And we print the domain and status with the right coloration!
-    print_result(urls, PyFunceble(urls))
+    print_test_result(urls, PyFunceble(urls))

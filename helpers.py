@@ -64,7 +64,7 @@ from PyFunceble import Fore, Style, initiate
 initiate(True)
 
 
-def print_result(subject, status):
+def print_test_result(subject, status):
     """
     Given the subject and its status, we print it to STDOUT.
 

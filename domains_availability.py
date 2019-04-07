@@ -64,7 +64,7 @@ from PyFunceble import load_config
 from PyFunceble import test as PyFunceble
 from PyFunceble.cli_core import CLICore
 
-from helpers import print_result
+from helpers import print_test_result
 
 # We initiate the list of domains we are going to test.
 DOMAINS = [
@@ -89,4 +89,4 @@ for domain in DOMAINS:
     # We loop through the list of domain.
 
     # And we print the domain and status with the right coloration!
-    print_result(domain, PyFunceble(domain))
+    print_test_result(domain, PyFunceble(domain))
