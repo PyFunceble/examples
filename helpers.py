@@ -11,9 +11,7 @@ The tool to check the availability or syntax of domains, IPv4 or URL.
     ██║        ██║   ██║     ╚██████╔╝██║ ╚████║╚██████╗███████╗██████╔╝███████╗███████╗
     ╚═╝        ╚═╝   ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═════╝ ╚══════╝╚══════╝
 
-This is an example which repond to the following problematic(s):
-
-    * How can I get the avaibility of a domain or IP with PyFunceble ?
+This provide a helper function.
 
 Author:
     Nissar Chababy, @funilrys, contactTATAfunilrysTODTODcom
@@ -60,33 +58,23 @@ License:
     SOFTWARE.
 """
 
-from PyFunceble import load_config
-from PyFunceble import test as PyFunceble
-from PyFunceble.cli_core import CLICore
+from PyFunceble import Fore, Style, initiate
 
-from helpers import print_result
-
-# We initiate the list of domains we are going to test.
-DOMAINS = [
-    "google.com",
-    "tweeetttter.com",
-    "github.com",
-    "examplessss.ooooorgg",
-    "twitter.com",
-]
+# We initiate colorama.
+initiate(True)
 
 
-# We load our configuration.
-#
-# Note: We need this to print the logo but if you
-# doesn't need the logo, you can ignore this.
-load_config(generate_directory_structure=False)
+def print_result(subject, status):
+    """
+    Given the subject and its status, we print it to STDOUT.
 
-# We print the PyFunceble logo.
-CLICore.colorify_logo(home=True)
+    :param str subject: The subject we are going to print.
+    :param str status: The status of the domain.
+    """
 
-for domain in DOMAINS:
-    # We loop through the list of domain.
-
-    # And we print the domain and status with the right coloration!
-    print_result(domain, PyFunceble(domain))
+    if status == "ACTIVE":
+        print(f"{Fore.GREEN + Style.BRIGHT}{subject} is {status}")
+    elif status == "INACTIVE":
+        print(f"{Fore.RED + Style.BRIGHT}{subject} is {status}")
+    else:
+        print(f"{Fore.CYAN + Style.BRIGHT}{subject} is {status}")
