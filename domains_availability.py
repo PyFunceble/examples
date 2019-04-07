@@ -102,6 +102,6 @@ def print_result(subject, status):
 for domain in DOMAINS:
     # We loop through the list of domain.
 
-    # And we print the colored!
+    # And we print the domain and status with the right coloration!
     print_result(domain, PyFunceble(domain))
 
