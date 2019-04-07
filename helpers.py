@@ -78,3 +78,17 @@ def print_test_result(subject, status):
         print(f"{Fore.RED + Style.BRIGHT}{subject} is {status}")
     else:
         print(f"{Fore.CYAN + Style.BRIGHT}{subject} is {status}")
+
+
+def print_syntax_result(subject, status):
+    """
+    Given the subject and its validation, we print it to STDOUT.
+
+    :param str subject: The subject we are going to print.
+    :param bool status: The validation state.
+    """
+
+    if status is True:
+        print(f"{Fore.GREEN + Style.BRIGHT}{subject} is VALID")
+    else:
+        print(f"{Fore.CYAN + Style.BRIGHT}{subject} is INVALID")
