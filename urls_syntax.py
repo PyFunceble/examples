@@ -66,7 +66,7 @@ from PyFunceble.cli_core import CLICore
 
 from helpers import print_syntax_result
 
-# We initiate the list of domains we are going to test.
+# We initiate the list of URLs we are going to test.
 URLS = [
     "https://google.com",
     "http://tweeetttter.com",
@@ -87,7 +87,7 @@ load_config(generate_directory_structure=False)
 CLICore.colorify_logo(home=True)
 
 for url in URLS:
-    # We loop through the list of domain.
+    # We loop through the list of URL.
 
-    # And we print the domain and status with the right coloration!
+    # And we print the URL and status with the right coloration!
     print_syntax_result(url, PyFunceble(url))

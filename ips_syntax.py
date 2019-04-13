@@ -66,7 +66,7 @@ from PyFunceble.cli_core import CLICore
 
 from helpers import print_syntax_result
 
-# We initiate the list of domains we are going to test.
+# We initiate the list of IPs we are going to test.
 IPS = ["216.58.207.46", "257.58.207.46"]
 
 
@@ -80,7 +80,7 @@ load_config(generate_directory_structure=False)
 CLICore.colorify_logo(home=True)
 
 for ip in IPS:
-    # We loop through the list of domain.
+    # We loop through the list of IP.
 
-    # And we print the domain and status with the right coloration!
+    # And we print the IP and status with the right coloration!
     print_syntax_result(ip, PyFunceble(ip))
