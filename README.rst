@@ -6,11 +6,11 @@ This repository provide some examples in the way you might use `PyFunceble`_.
 Warning
 -------
 
-Those examples represent the `2.x.x branch`_ of `PyFunceble`_.
+Those examples represent the `dev branch`_ of `PyFunceble`_.
 
 
 .. _PyFunceble: https://github.com/funilrys/PyFunceble
-.. _2.x.x branch: https://github.com/funilrys/PyFunceble/tree/2.x.x
+.. _dev branch: https://github.com/funilrys/PyFunceble/tree/dev
 
 License
 -------
