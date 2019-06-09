@@ -1,1 +1,1 @@
--e git+https://github.com/funilrys/PyFunceble.git@2.x.x#egg=PyFunceble
+PyFunceble-dev

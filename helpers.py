@@ -58,10 +58,10 @@ License:
     SOFTWARE.
 """
 
-from PyFunceble import Fore, Style, initiate
+from PyFunceble import Fore, Style, initiate_colorama
 
 # We initiate colorama.
-initiate(True)
+initiate_colorama(True)
 
 
 def print_test_result(subject, status):
