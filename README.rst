@@ -1,16 +1,10 @@
 Examples
 ========
 
-This repository provide some examples in the way you might use `PyFunceble`_.
-
-Warning
--------
-
-Those examples represent the `dev branch`_ of `PyFunceble`_.
+This repository provide some examples in the way you might use the `PyFunceble`_ (Python) API.
 
 
 .. _PyFunceble: https://github.com/funilrys/PyFunceble
-.. _dev branch: https://github.com/funilrys/PyFunceble/tree/dev
 
 License
 -------
