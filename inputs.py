@@ -11,10 +11,7 @@ The tool to check the availability or syntax of domains, IP or URL.
     ██║        ██║   ██║     ╚██████╔╝██║ ╚████║╚██████╗███████╗██████╔╝███████╗███████╗
     ╚═╝        ╚═╝   ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═════╝ ╚══════╝╚══════╝
 
-This provide some helper functions.
-
-Author:
-    Nissar Chababy, @funilrys, contactTATAfunilrysTODTODcom
+Provides some some shared variables and states.
 
 Author:
     Nissar Chababy, @funilrys, contactTATAfunilrysTODTODcom
@@ -54,38 +51,29 @@ License:
 """
 
 import PyFunceble
-from colorama import Fore, Style
-from colorama import init as initiate_colorama
 
-# We initiate colorama.
-initiate_colorama(True)
+# We load our configuration.
+#
+# Note: We need this to print the logo but if you
+# doesn't need the logo, you can ignore this.
+PyFunceble.load_config(generate_directory_structure=False)
 
-
-def print_test_result(subject, status):
-    """
-    Given the subject and its status, we print it to STDOUT.
-
-    :param str subject: The subject we are going to print.
-    :param str status: The status of the domain.
-    """
-
-    if status.lower() in PyFunceble.STATUS.list.up:
-        print(f"{Fore.GREEN + Style.BRIGHT}{subject} is {status}")
-    elif status.lower() in PyFunceble.STATUS.list.down:
-        print(f"{Fore.RED + Style.BRIGHT}{subject} is {status}")
-    else:
-        print(f"{Fore.CYAN + Style.BRIGHT}{subject} is {status}")
+# We print the PyFunceble logo.
+PyFunceble.core.CLI.colorify_logo(home=True)
 
 
-def print_syntax_result(subject, status):
-    """
-    Given the subject and its validation, we print it to STDOUT.
+DOMAINS = [
+    "google.com",
+    "tweeetttter.com",
+    "github.com",
+    "examplessss.ooooorgg",
+    "twitter.com",
+    "forest-jump",
+]
 
-    :param str subject: The subject we are going to print.
-    :param bool status: The validation state.
-    """
 
-    if status is True:
-        print(f"{Fore.GREEN + Style.BRIGHT}{subject} is VALID")
-    else:
-        print(f"{Fore.CYAN + Style.BRIGHT}{subject} is INVALID")
+IPS = ["216.58.207.46", "257.58.207.46"]
+
+URLS = [f"http://{x}" for x in DOMAINS]
+URLS.extend([f"https://{x}" for x in DOMAINS])
+URLS = sorted(URLS, key=lambda x: x.split("//")[-1])

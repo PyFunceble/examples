@@ -11,10 +11,10 @@ The tool to check the availability or syntax of domains, IP or URL.
     ██║        ██║   ██║     ╚██████╔╝██║ ╚████║╚██████╗███████╗██████╔╝███████╗███████╗
     ╚═╝        ╚═╝   ╚═╝      ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚══════╝╚═════╝ ╚══════╝╚══════╝
 
-This provide some helper functions.
+This is an example which responds to the following problematic(s):
 
-Author:
-    Nissar Chababy, @funilrys, contactTATAfunilrysTODTODcom
+    * How can I get the availability of a domain or IP with the PyFunceble API and at the same time
+      generate the same output ?
 
 Author:
     Nissar Chababy, @funilrys, contactTATAfunilrysTODTODcom
@@ -54,38 +54,23 @@ License:
 """
 
 import PyFunceble
-from colorama import Fore, Style
-from colorama import init as initiate_colorama
 
-# We initiate colorama.
-initiate_colorama(True)
+import inputs
+from helpers import print_test_result
 
+PyFunceble.load_config(
+    generate_directory_structure=True,
+    # We want the plain and the host format (activated by default).
+    custom={"api_file_generation": True, "plain_list_domain": True},
+)
 
-def print_test_result(subject, status):
-    """
-    Given the subject and its status, we print it to STDOUT.
-
-    :param str subject: The subject we are going to print.
-    :param str status: The status of the domain.
-    """
-
-    if status.lower() in PyFunceble.STATUS.list.up:
-        print(f"{Fore.GREEN + Style.BRIGHT}{subject} is {status}")
-    elif status.lower() in PyFunceble.STATUS.list.down:
-        print(f"{Fore.RED + Style.BRIGHT}{subject} is {status}")
-    else:
-        print(f"{Fore.CYAN + Style.BRIGHT}{subject} is {status}")
+# We clean the output directory.
+PyFunceble.output.Clean()
 
 
-def print_syntax_result(subject, status):
-    """
-    Given the subject and its validation, we print it to STDOUT.
+for domain in inputs.DOMAINS:
+    # We loop through the list of domain.
 
-    :param str subject: The subject we are going to print.
-    :param bool status: The validation state.
-    """
-
-    if status is True:
-        print(f"{Fore.GREEN + Style.BRIGHT}{subject} is VALID")
-    else:
-        print(f"{Fore.CYAN + Style.BRIGHT}{subject} is INVALID")
+    # And we print the domain and status with the right coloration!
+    # In this case the output is implicitly generated.
+    print_test_result(domain, PyFunceble.test(domain))
